@@ -7,9 +7,10 @@ name = "builderguild"
 version = "0.1.0"
 description = "Autonomous software engineering legion"
 requires-python = ">=3.10"
+dependencies = [] 
 
 [project.scripts]
-builderguild = "builderguild.cli:main"
+builderguild = "commander:main"
 
-[tool.setuptools.packages.find]
-include = ["builderguild*"]
+[tool.setuptools]
+py-modules = ["commander"]
