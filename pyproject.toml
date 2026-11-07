@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "builderguild"
+version = "0.1.0"
+description = "Autonomous software engineering legion"
+requires-python = ">=3.10"
+
+[project.scripts]
+builderguild = "builderguild.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["builderguild*"]
