@@ -1,0 +1,19 @@
+# Environments
+.env
+.venv
+env/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database & Output
+runs/
+*.db
+*.sqlite
+
+# OS
+.DS_Store
