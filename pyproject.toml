@@ -8,8 +8,21 @@ version = "0.1.0"
 description = "Autonomous software engineering legion"
 requires-python = ">=3.10"
 
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "ruff", "pip-audit"]
+
 [project.scripts]
 builderguild = "builderguild.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["builderguild*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
