@@ -1,4 +1,4 @@
-[build-system]
+build-system]
 requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
@@ -6,7 +6,16 @@ build-backend = "setuptools.build_meta"
 name = "builderguild"
 version = "0.1.0"
 description = "Autonomous software engineering legion"
+readme = "README.md"
 requires-python = ">=3.10"
+dependencies = [
+  "anthropic>=0.40.0",
+  "openai>=1.50.0",
+  "rich>=13.0.0",
+]
 
 [project.scripts]
-builderguild = "commander:main"
+builderguild = "builderguild.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["builderguild*"]
