@@ -26,3 +26,5 @@ jobs:
     - name: Test CLI jalan atau nggak
       run: |
         builderguild --help
+
+
