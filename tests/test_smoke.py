@@ -1,2 +1,5 @@
+import builderguild  # noqa: F401
+
+
 def test_import():
-    import builderguild
+    assert builderguild is not None
