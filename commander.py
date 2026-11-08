@@ -58,5 +58,5 @@ def main():
 
     print("Selesai men-dispatch task. Silakan cek layar tmux (bg-soldier).")
 
-__name__ == "__main__":
-    main()
+if __name__ == "__main__": 
+  main()
