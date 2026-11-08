@@ -57,3 +57,6 @@ def main():
         db.update_status(t["id"], "in_progress")
 
     print("Selesai men-dispatch task. Silakan cek layar tmux (bg-soldier).")
+
+__name__ == "__main__":
+    main()
