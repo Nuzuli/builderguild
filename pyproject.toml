@@ -15,6 +15,7 @@ dev = ["pytest", "pytest-cov", "ruff", "pip-audit"]
 builderguild = "builderguild.cli:main"
 
 [tool.setuptools.packages.find]
+where = ["builderguild"]
 include = ["builderguild*"]
 
 [tool.ruff]
@@ -27,3 +28,4 @@ ignore = ["E501"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["builderguild"]
