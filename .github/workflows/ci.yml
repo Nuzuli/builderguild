@@ -27,4 +27,4 @@ jobs:
       - name: Test
         run: pytest --cov=builderguild --cov-report=term-missing
       - name: Dependency audit
-        run: pip-audit -r requirements.txt
+        run: pip install -r requirements-lock.txt 
