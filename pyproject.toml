@@ -9,7 +9,7 @@ description = "Autonomous software engineering legion"
 requires-python = ">=3.10"
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-cov", "ruff", "pip-audit"]
+dev = ["pytest", "pytest-cov", "ruff", "pip-audit", "mypy"]
 
 [project.scripts]
 builderguild = "builderguild.cli:main"
@@ -28,4 +28,11 @@ ignore = ["E501"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = [".", "builderguild"] 
+pythonpath = [".", "builderguild"]
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = "builderguild"
+explicit_package_bases = true
+warn_unused_ignores = true
+warn_redundant_casts = true
