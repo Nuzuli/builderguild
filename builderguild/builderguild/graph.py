@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS facts (
 );
 """
 
+
 class FactGraph:
     def __init__(self, db_path: str):
         os.makedirs(os.path.dirname(db_path) or ".", exist_ok=True)
@@ -43,6 +44,13 @@ class FactGraph:
         )
         self.conn.commit()
         return cur.lastrowid
+
+    def update_status(self, fact_id: int, status: str) -> None:
+        self.conn.execute(
+            "UPDATE facts SET status = ?, updated = ? WHERE id = ?",
+            (status, time.time(), fact_id),
+        )
+        self.conn.commit()
 
     def close(self) -> None:
         self.conn.close()
