@@ -70,27 +70,21 @@ Alur: `commander.py` membaca task dari `FactGraph`, mengirimnya ke sesi tmux, la
 ├── requirements-lock.txt        # dependensi terkunci
 └── .github/workflows/           # CI dan pembuat lockfile
 ```
+
 ## Perintah CLI
 
-Semua perintah dijalankan lewat `python -m builderguild.cli`.
+Setelah `pip install -e .`, perintah `builderguild` tersedia:
 
 | Perintah | Fungsi |
 | --- | --- |
-| `setup` | Membuat graph dan task awal |
-| `status` | Menampilkan semua task |
-| `status --filter done` | Menampilkan task dengan status tertentu |
-| `add "Judul" --detail "Keterangan"` | Menambah task baru |
-| `done <id>` | Menandai task selesai |
+| `builderguild setup` | Membuat graph dan task awal |
+| `builderguild status` | Menampilkan semua task |
+| `builderguild status --filter done` | Menampilkan task dengan status tertentu |
+| `builderguild add "Judul" --detail "Keterangan"` | Menambah task baru |
+| `builderguild done <id>` | Menandai task selesai |
 
-Contoh:
+Lokasi database diatur lewat `BG_DB_PATH` (lihat `.env.example`).
 
-```
-python -m builderguild.cli add "Perbaiki bug login" --detail "error 500"
-python -m builderguild.cli status
-python -m builderguild.cli done 1
-```
-
-Lokasi database diatur lewat variabel lingkungan `BG_DB_PATH` (lihat `.env.example`).
 
 ## Menjalankan Tes
 
