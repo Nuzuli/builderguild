@@ -16,10 +16,11 @@ def test_session_exists_false(monkeypatch):
     assert commander.session_exists("bg-test") is False
 
 
-def test_spawn_tmux_without_tmux(monkeypatch, capsys):
+def test_spawn_tmux_without_tmux(monkeypatch, capsys, caplog):
     monkeypatch.setattr(commander.shutil, "which", lambda name: None)
     assert commander.spawn_tmux("bg-test") is False
-    assert "tmux belum diinstall" in capsys.readouterr().out
+    output = capsys.readouterr().out + caplog.text
+    assert "tmux belum diinstall" in output
 
 
 def test_spawn_tmux_creates_session(monkeypatch):
