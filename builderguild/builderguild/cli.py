@@ -18,6 +18,8 @@ def cmd_status(args) -> int:
     cfg = Config.load()
     fg = FactGraph(cfg.db_path)
     for f in fg.list_titles():
+        if args.filter and f["status"] != args.filter:
+            continue
         print(f"#{f['id']:>3} [{f['status']}] {f['title']}")
     fg.close()
     return 0
@@ -54,6 +56,7 @@ def main(argv: list[str] | None = None) -> int:
     s.set_defaults(func=cmd_setup)
 
     s = sub.add_parser("status", help="tampilkan board")
+    s.add_argument("--filter", default=None, help="hanya tampilkan status ini")
     s.set_defaults(func=cmd_status)
 
     s = sub.add_parser("add", help="tambah task baru")
