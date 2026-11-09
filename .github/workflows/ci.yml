@@ -27,6 +27,6 @@ jobs:
       - name: Type check
         run: mypy builderguild/builderguild commander.py
       - name: Test
-        run: pytest --cov=builderguild --cov-report=term-missing --cov-fail-under=70
+        run:   pytest --cov=builderguild --cov=commander --cov-report=term-missing --cov-fail-under=70
       - name: Dependency audit
         run: pip-audit -r requirements.txt
