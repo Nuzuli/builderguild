@@ -26,3 +26,14 @@ def test_config_rejects_non_numeric_tokens(monkeypatch):
     monkeypatch.setenv("BG_MAX_TOKENS", "banyak")
     with pytest.raises(ConfigError, match="BG_MAX_TOKENS"):
         Config.load()
+
+def test_config_rejects_zero_agents(monkeypatch):
+    monkeypatch.setenv("BG_MAX_AGENTS", "0")
+    with pytest.raises(ConfigError, match="minimal 1"):
+        Config.load()
+
+
+def test_config_rejects_negative_tokens(monkeypatch):
+    monkeypatch.setenv("BG_MAX_TOKENS", "-5")
+    with pytest.raises(ConfigError, match="minimal 1"):
+        Config.load()
