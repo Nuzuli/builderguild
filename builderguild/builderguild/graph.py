@@ -43,6 +43,8 @@ class FactGraph:
             (title, summary, json.dumps(evidence), kind, "open", owner, now, now),
         )
         self.conn.commit()
+        if cur.lastrowid is None:
+            raise RuntimeError("INSERT tidak menghasilkan id baris")
         return cur.lastrowid
 
     def update_status(self, fact_id: int, status: str) -> None:
