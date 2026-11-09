@@ -20,11 +20,13 @@ jobs:
       - name: Install
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements-lock.txt
           pip install -e ".[dev]"
       - name: Lint
         run: ruff check .
+      - name: Type check
+        run: mypy builderguild/builderguild commander.py
       - name: Test
         run: pytest --cov=builderguild --cov-report=term-missing --cov-fail-under=70
       - name: Dependency audit
-        run: pip install -r requirements-lock.txt 
+        run: pip-audit -r requirements.txt
