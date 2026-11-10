@@ -4,6 +4,8 @@ import os
 import time
 import json
 
+from .errors import GraphError
+
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS facts (
     id        INTEGER PRIMARY KEY AUTOINCREMENT,
