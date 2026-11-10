@@ -46,7 +46,7 @@ class FactGraph:
         )
         self.conn.commit()
         if cur.lastrowid is None:
-            raise RuntimeError("INSERT tidak menghasilkan id baris")
+                            raise GraphError("INSERT gagal: tidak ada id baris baru") 
         return cur.lastrowid
 
     def update_status(self, fact_id: int, status: str) -> None:
