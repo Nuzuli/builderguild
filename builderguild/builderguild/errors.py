@@ -4,3 +4,7 @@ class TmuxError(Exception):
 
 class TmuxNotAvailableError(TmuxError):
     """tmux belum terinstall."""
+
+
+class GraphError(Exception):
+    """Operasi pada fact graph gagal."""
